@@ -4,7 +4,7 @@ var config_file_array = {"redis":true, "db":true};
 
 var index = function(){
 	//url setting
-	this.domain_root = "addler.com";
+	this.domain_root = "mmfit.cc";
 	this.domain_name_map = {
 		'www':'www',
 		'blog':'blog'
