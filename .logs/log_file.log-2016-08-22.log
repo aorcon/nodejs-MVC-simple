@@ -1,0 +1,11 @@
+hello world
+hello world
+hello world
+[2016-08-22 11:27:30.980] [DEBUG] main - hello world
+[2016-08-22 11:27:30.983] [ERROR] main - hello world
+[2016-08-22 11:32:03.801] [DEBUG] main - hello
+[2016-08-22 11:32:56.834] [DEBUG] main - { '0': 'hello' }
+[2016-08-22 12:12:02.488] [DEBUG] main - { '0': 'hello' }
+[2016-08-22 12:13:13.949] [DEBUG] main - hello
+[2016-08-22 12:13:40.312] [DEBUG] main - hello
+[2016-08-22 13:48:37.491] [DEBUG] main - OK
