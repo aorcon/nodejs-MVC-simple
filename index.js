@@ -1,15 +1,11 @@
 var fs = require('fs');
 var mixin = require('utils-merge');
-var config_file_array = {"redis":true, "db":true};
+var config_file_array = {"redis": true, "db": true, "logger": true};
+var loglib = require('./fk/kernel/log');
+
 
 var index = function(){
 	//url setting
-	this.domain_root = "mmfit.cc";
-	this.domain_name_map = {
-		'www':'www',
-		'blog':'blog'
-
-	}
 	//working directory setting
 	this.basedir = __dirname;
 	this.filename = __filename;
@@ -18,10 +14,6 @@ var index = function(){
 	//env value in {'development', 'production'}
 	this.env = 'development';
 	this.DEBUG = true;
-
-
-	//TODO: log support
-	this.logging = console.log;
 
 	//TODO: setting constants.js loading
 	//TODO: setting persistent
@@ -50,8 +42,6 @@ var index = function(){
 						if (ldot === configfiles[key].lastIndexOf('.')){
 							name = configfiles[key].substring(0, ldot).toLowerCase();
 						}
-						console.log('NAME:' + name);
-						console.log('Ext:' + ext);
 						var _options = {};
 						if (ext === 'json') _options = require(config_path + '/' + configfiles[key]);
 						if (name in config_file_array){
@@ -65,7 +55,6 @@ var index = function(){
 						console.log(e);
 					} finally {
 						if (options) mixin(this, options);
-						console.log(options);
 					}
 
 				}
@@ -73,7 +62,8 @@ var index = function(){
 		}
 	} catch (e) {
 	} finally {
-
+		var options = this.logger;
+		loglib.init(options);
 	}
 	// fs.readdir(config_path, 'utf-8', (error, files) => {
 	// 	if (error) ;

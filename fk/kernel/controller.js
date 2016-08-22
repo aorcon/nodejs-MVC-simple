@@ -2,6 +2,8 @@
 
 var Handlebars = require('handlebars');
 var fs = require('fs');
+var loglib = require('./log');
+var _ = require('underscore');
 
 
 var controller = function(){
@@ -13,6 +15,9 @@ controller.prototype.init = function(params){
           this[key] = params[key];
         }
     }
+    this.logger = loglib.getLogger();
+    var level = loglib.getLevel();
+    _.map(level, (value) =>{ this[value] = this.logger[value] });
 }
 
 controller.prototype.render = function(view, data, responds, callback){
@@ -27,12 +32,13 @@ controller.prototype.render = function(view, data, responds, callback){
         if (this.DEBUG){
             //this.view_engine
             var viewpath = this.basedir + '/' + this.appdir + '/' + this.MODULE + '/' + this.viewdir + '/' + view + '.hbs';
+            var self = this;
             fs.access(viewpath, fs.constants.R_OK, function(err){
     			if (err){
-    				console.log(err);
+    				self.debug(err);
     				done();
     			}else{
-                    console.log(viewpath);
+                    self.debug(viewpath);
                     fs.readFile(viewpath, 'utf8', (err, hbs) => {
                         if (err) done();
                         var template = Handlebars.compile(hbs);
@@ -55,7 +61,7 @@ controller.prototype.indexAction = function(request, response){
         }
     }
     var result = template(data);
-    console.log(this);
+    this.debug(this);
     response.send(result);
 }
 module.exports = controller;

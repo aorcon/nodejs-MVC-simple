@@ -1,0 +1,7 @@
+{
+    "domain_root": "mmfit.cc",
+    "domain_name_map": {
+        "www": "www",
+        "blog": "blog"
+    }
+}

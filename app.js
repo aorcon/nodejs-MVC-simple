@@ -23,7 +23,8 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-console.log(nana.redis);
+nana.debug(nana.redis);
+nana.debug(nana.logger);
 app.use(logger('dev'));
 app.use(session({
         store: new RedisStore({

@@ -1,0 +1,18 @@
+{
+    "type" : "log4js",
+    "options" : {
+        "appenders": [
+            {
+                "type": "dateFile",
+                "filename": ".logs/log_file.log",
+                "pattern": "-yyyy-MM-dd.log",
+                "alwaysIncludePattern": true,
+                "category": "main",
+                "layout": {
+                    "type": "basic"
+                }
+            }
+        ]
+
+    }
+}

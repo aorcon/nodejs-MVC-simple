@@ -26,10 +26,8 @@ exports.loadlibrary = function(lib_path){
 
 exports.listfile = function(path, filter){
     return new Promise(function(resolve, reject){
-        // console.log('LIST Dir');
         fs.readdir(path, function(error, files){
             if (error){
-                // console.log('LIST DIR ERROR');
                 reject(error);
             }else{
 
@@ -46,7 +44,6 @@ exports.listfile = function(path, filter){
                         }
                     }
                 }
-                // console.log('LIST DIR OK');
                 resolve(result);
             }
         });
