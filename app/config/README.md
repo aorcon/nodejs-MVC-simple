@@ -1,7 +1,11 @@
+# nodejs-MVC-simple
+
+# logger.json
+
 {
-    "type" : "log4js",
-    "default" : "nanaMVC",
-    "options" : {
+    "type" : "log4js",  //use log4js middleware
+    "default" : "nanaMVC",  //default logger name. without this option, use "default" as default.
+    "options" : {       //for log middleware
         "appenders": [
             {
                 "type": "dateFile",

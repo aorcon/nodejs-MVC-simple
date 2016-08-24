@@ -179,9 +179,9 @@ nanaMVC.prototype.route = function(properties){
 							}
 						} catch (e) {
 							if (params.DEBUG) res.send(e.stack.replace(/\n/g, '<br>').replace(/ /g, '&nbsp;'));
-							this.debug(e.stack);
+							self.debug(e.stack);
 						} finally {
-							this.debug('DONE[' + CONTROLLER + '][' + ACTION + ']');
+							self.info('[ACCESSLOG] : [' + CONTROLLER + '][' + ACTION + ']');
 						}
 
 					});

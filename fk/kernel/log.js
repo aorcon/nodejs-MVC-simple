@@ -16,7 +16,7 @@ function getLevel(){
     return level;
 }
 function getLogger(name){
-    name = name || 'default';
+    name = name || config.default || 'default';
     if (name === 'default' && loggers[name] === undefined){
         loggers['default'] = {
             debug  : function(){

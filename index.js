@@ -20,7 +20,7 @@ var index = function(){
 	//TODO: setting Common loading config
 	//TODO: setting controller config
 	this.controllerdir = 'controller';
-	//TODO: setting View config (defautl & per module)
+	//TODO: setting View config (default & per module)
 	this.viewdir = 'views';
 	this.view_engine = 'handlebars';
 	//TODO: setting MVC config or Route config
