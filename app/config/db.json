@@ -1,0 +1,12 @@
+{
+    "type": "memory",
+    "options": {
+        "connectionLimit"   : 10,
+        "host"      : "localhost",
+        "user"      : "root",
+        "password"  : "",
+        "database"  : "",
+        "debug"     : false,
+        "default-query-timeout" : 10000
+    }
+}
